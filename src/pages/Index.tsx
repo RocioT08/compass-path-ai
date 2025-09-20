@@ -1,12 +1,54 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import Hero from "@/components/Hero";
+import SurveyForm from "@/components/SurveyForm";
+import ResultsDashboard from "@/components/ResultsDashboard";
+
+interface FormData {
+  age: string;
+  gender: string;
+  education: string;
+  field: string;
+  experience: string;
+  yearsInCountry: string;
+  languageLevel: string;
+  currentlySatisfaction: string;
+  barriers: string;
+  goals: string;
+}
 
 const Index = () => {
+  const [currentView, setCurrentView] = useState<"hero" | "survey" | "results">("hero");
+  const [surveyData, setSurveyData] = useState<FormData | null>(null);
+
+  const startSurvey = () => {
+    setCurrentView("survey");
+  };
+
+  const completeSurvey = (data: FormData) => {
+    setSurveyData(data);
+    setCurrentView("results");
+  };
+
+  const resetToHome = () => {
+    setCurrentView("hero");
+    setSurveyData(null);
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen">
+      {currentView === "hero" && (
+        <div onClick={startSurvey}>
+          <Hero />
+        </div>
+      )}
+      
+      {currentView === "survey" && (
+        <SurveyForm onComplete={completeSurvey} />
+      )}
+      
+      {currentView === "results" && surveyData && (
+        <ResultsDashboard formData={surveyData} />
+      )}
     </div>
   );
 };
