@@ -1,24 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import React, { useEffect, useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import { 
-  TrendingUp, 
-  Clock, 
-  Users, 
-  BookOpen, 
-  MessageSquare, 
+import {
+  TrendingUp,
+  Clock,
+  Users,
+  BookOpen,
+  MessageSquare,
   Lightbulb,
   Target,
   Award,
   Download,
   Share2,
   Loader2,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
-import { useCareerPrediction, type CareerPrediction, type SurveyData } from '@/hooks/useCareerPrediction';
-import { useToast } from '@/hooks/use-toast';
+import {
+  useCareerPrediction,
+  type CareerPrediction,
+  type SurveyData,
+} from "@/hooks/useCareerPrediction";
+import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
   age: string;
@@ -49,7 +59,7 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
     emotionalWellbeing: parseInt(formData.currentlySatisfaction) || 3,
     networkingLevel: 3, // Default value
     currentSituation: formData.barriers,
-    goals: formData.goals.split(',').map(g => g.trim())
+    goals: formData.goals.split(",").map((g) => g.trim()),
   };
 
   useEffect(() => {
@@ -64,7 +74,8 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
       } else if (error) {
         toast({
           title: "Error",
-          description: "No se pudo procesar la predicción. Usando datos de ejemplo.",
+          description:
+            "No se pudo procesar la predicción. Usando datos de ejemplo.",
           variant: "destructive",
         });
         // Fallback to mock data if API fails
@@ -77,9 +88,9 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
               category: "Idioma",
               priority: "Alta",
               action: "Mejorar fluidez en inglés técnico",
-              resources: ["Coursera Business English", "LinkedIn Learning"]
-            }
-          ]
+              resources: ["Coursera Business English", "LinkedIn Learning"],
+            },
+          ],
         });
       }
     };
@@ -93,8 +104,12 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center space-y-4">
             <Loader2 className="w-12 h-12 animate-spin mx-auto text-primary" />
-            <h2 className="text-2xl font-semibold text-foreground">Procesando tu perfil...</h2>
-            <p className="text-muted-foreground">Nuestro AI está analizando tus respuestas</p>
+            <h2 className="text-2xl font-semibold text-foreground">
+              Procesando tu perfil...
+            </h2>
+            <p className="text-muted-foreground">
+              Nuestro AI está analizando tus respuestas
+            </p>
           </div>
         </div>
       </section>
@@ -110,15 +125,19 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
     expectedTimelineMonths: predictions.timelineMonths,
     profileMatch: predictions.profileType,
     riskFactors: predictions.recommendations
-      .filter(r => r.priority === "Alta")
-      .map(r => r.category),
-    strengths: ["Perfil educativo sólido", "Experiencia relevante", "Metas claras"],
-    recommendations: predictions.recommendations.map(rec => ({
+      .filter((r) => r.priority === "Alta")
+      .map((r) => r.category),
+    strengths: [
+      "Perfil educativo sólido",
+      "Experiencia relevante",
+      "Metas claras",
+    ],
+    recommendations: predictions.recommendations.map((rec) => ({
       category: rec.category,
       priority: rec.priority,
       action: rec.action,
-      timeline: rec.priority === "Alta" ? "1-3 meses" : "3-6 meses"
-    }))
+      timeline: rec.priority === "Alta" ? "1-3 meses" : "3-6 meses",
+    })),
   };
 
   return (
@@ -126,10 +145,15 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">AI Analysis Complete</Badge>
-          <h2 className="text-4xl font-bold mb-4">Your Career Intelligence Report</h2>
+          <Badge variant="secondary" className="mb-4">
+            AI Analysis Complete
+          </Badge>
+          <h2 className="text-4xl font-bold mb-4">
+            Your Career Intelligence Report Rocio
+          </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Based on your profile and our analysis of 1,200+ similar cases, here are your personalized insights
+            Based on your profile and our analysis of 1,200+ similar cases, here
+            are your personalized insights
           </p>
         </div>
 
@@ -144,19 +168,31 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                   Career Success Probability
                 </CardTitle>
                 <CardDescription>
-                  Likelihood of achieving your professional goals based on similar profiles
+                  Likelihood of achieving your professional goals based on
+                  similar profiles
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="text-4xl font-bold text-success">{analysisResults.successProbability}%</div>
-                  <Badge variant="secondary" className="bg-success/10 text-success">
-                    {analysisResults.successProbability >= 70 ? "Alta Confianza" : "Confianza Media"}
+                  <div className="text-4xl font-bold text-success">
+                    {analysisResults.successProbability}%
+                  </div>
+                  <Badge
+                    variant="secondary"
+                    className="bg-success/10 text-success"
+                  >
+                    {analysisResults.successProbability >= 70
+                      ? "Alta Confianza"
+                      : "Confianza Media"}
                   </Badge>
                 </div>
-                <Progress value={analysisResults.successProbability} className="mb-4" />
+                <Progress
+                  value={analysisResults.successProbability}
+                  className="mb-4"
+                />
                 <p className="text-sm text-muted-foreground">
-                  This score is based on analysis of professionals with similar backgrounds, education, and circumstances.
+                  This score is based on analysis of professionals with similar
+                  backgrounds, education, and circumstances.
                 </p>
               </CardContent>
             </Card>
@@ -169,26 +205,35 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                   Expected Timeline to Stabilization
                 </CardTitle>
                 <CardDescription>
-                  Predicted time to achieve professional stability and career goals
+                  Predicted time to achieve professional stability and career
+                  goals
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="text-4xl font-bold text-primary">{analysisResults.expectedTimelineMonths}</div>
+                  <div className="text-4xl font-bold text-primary">
+                    {analysisResults.expectedTimelineMonths}
+                  </div>
                   <span className="text-lg text-muted-foreground">months</span>
                 </div>
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
                     <div className="font-semibold">6-12 months</div>
-                    <div className="text-sm text-muted-foreground">Initial adjustment</div>
+                    <div className="text-sm text-muted-foreground">
+                      Initial adjustment
+                    </div>
                   </div>
                   <div>
                     <div className="font-semibold">12-18 months</div>
-                    <div className="text-sm text-muted-foreground">Career positioning</div>
+                    <div className="text-sm text-muted-foreground">
+                      Career positioning
+                    </div>
                   </div>
                   <div>
                     <div className="font-semibold">18+ months</div>
-                    <div className="text-sm text-muted-foreground">Professional growth</div>
+                    <div className="text-sm text-muted-foreground">
+                      Professional growth
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -208,25 +253,35 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                     {analysisResults.profileMatch}
                   </Badge>
                 </div>
-                
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <div>
-                    <h4 className="font-semibold text-success mb-2">Key Strengths</h4>
+                    <h4 className="font-semibold text-success mb-2">
+                      Key Strengths
+                    </h4>
                     <ul className="space-y-1">
                       {analysisResults.strengths.map((strength, index) => (
-                        <li key={index} className="flex items-center gap-2 text-sm">
+                        <li
+                          key={index}
+                          className="flex items-center gap-2 text-sm"
+                        >
                           <Award className="h-4 w-4 text-success" />
                           {strength}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  
+
                   <div>
-                    <h4 className="font-semibold text-warning mb-2">Focus Areas</h4>
+                    <h4 className="font-semibold text-warning mb-2">
+                      Focus Areas
+                    </h4>
                     <ul className="space-y-1">
                       {analysisResults.riskFactors.map((factor, index) => (
-                        <li key={index} className="flex items-center gap-2 text-sm">
+                        <li
+                          key={index}
+                          className="flex items-center gap-2 text-sm"
+                        >
                           <Target className="h-4 w-4 text-warning" />
                           {factor}
                         </li>
@@ -252,17 +307,24 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
               </CardHeader>
               <CardContent className="space-y-4">
                 {analysisResults.recommendations.map((rec, index) => (
-                  <div key={index} className="border-l-4 border-primary pl-4 pb-4 border-b last:border-b-0">
+                  <div
+                    key={index}
+                    className="border-l-4 border-primary pl-4 pb-4 border-b last:border-b-0"
+                  >
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="font-semibold text-sm">{rec.category}</h4>
-                      <Badge 
-                        variant={rec.priority === "High" ? "destructive" : "secondary"}
+                      <Badge
+                        variant={
+                          rec.priority === "High" ? "destructive" : "secondary"
+                        }
                         className="text-xs"
                       >
                         {rec.priority}
                       </Badge>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-2">{rec.action}</p>
+                    <p className="text-sm text-muted-foreground mb-2">
+                      {rec.action}
+                    </p>
                     <div className="flex items-center gap-1 text-xs text-muted-foreground">
                       <Clock className="h-3 w-3" />
                       {rec.timeline}
