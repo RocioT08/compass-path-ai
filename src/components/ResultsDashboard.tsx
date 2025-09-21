@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -12,8 +13,12 @@ import {
   Target,
   Award,
   Download,
-  Share2
+  Share2,
+  Loader2,
+  CheckCircle
 } from "lucide-react";
+import { useCareerPrediction, type CareerPrediction, type SurveyData } from '@/hooks/useCareerPrediction';
+import { useToast } from '@/hooks/use-toast';
 
 interface FormData {
   age: string;
@@ -29,39 +34,91 @@ interface FormData {
 }
 
 const ResultsDashboard = ({ formData }: { formData: FormData }) => {
-  // Mock AI analysis based on form data
-  const analysisResults = {
-    successProbability: 78,
-    expectedTimelineMonths: 18,
-    profileMatch: "Senior STEM Professional with Language Barriers",
-    riskFactors: ["Language proficiency", "Local market experience"],
-    strengths: ["Strong education", "Relevant experience", "Clear goals"],
-    recommendations: [
-      {
-        category: "Language Development",
-        priority: "High",
-        action: "Enroll in professional English communication course",
-        timeline: "3-6 months"
-      },
-      {
-        category: "Professional Networking", 
-        priority: "High",
-        action: "Join industry associations and attend networking events",
-        timeline: "Ongoing"
-      },
-      {
-        category: "Credential Recognition",
-        priority: "Medium",
-        action: "Complete credential assessment process",
-        timeline: "6-9 months"
-      },
-      {
-        category: "Emotional Support",
-        priority: "Medium", 
-        action: "Connect with migrant support groups",
-        timeline: "1-3 months"
+  const { getPrediction, loading, error } = useCareerPrediction();
+  const { toast } = useToast();
+  const [predictions, setPredictions] = useState<CareerPrediction | null>(null);
+
+  // Convertir FormData a SurveyData para la API
+  const surveyData: SurveyData = {
+    age: parseInt(formData.age) || 30,
+    gender: formData.gender,
+    education: formData.education,
+    experience: parseInt(formData.experience) || 0,
+    yearsInCountry: parseInt(formData.yearsInCountry) || 0,
+    languageLevel: parseInt(formData.languageLevel) || 3,
+    emotionalWellbeing: parseInt(formData.currentlySatisfaction) || 3,
+    networkingLevel: 3, // Default value
+    currentSituation: formData.barriers,
+    goals: formData.goals.split(',').map(g => g.trim())
+  };
+
+  useEffect(() => {
+    const fetchPrediction = async () => {
+      const result = await getPrediction(surveyData);
+      if (result) {
+        setPredictions(result);
+        toast({
+          title: "Análisis completado",
+          description: "Tu reporte de inteligencia de carrera está listo.",
+        });
+      } else if (error) {
+        toast({
+          title: "Error",
+          description: "No se pudo procesar la predicción. Usando datos de ejemplo.",
+          variant: "destructive",
+        });
+        // Fallback to mock data if API fails
+        setPredictions({
+          successProbability: 78,
+          timelineMonths: 18,
+          profileType: "Profesional en Transición",
+          recommendations: [
+            {
+              category: "Idioma",
+              priority: "Alta",
+              action: "Mejorar fluidez en inglés técnico",
+              resources: ["Coursera Business English", "LinkedIn Learning"]
+            }
+          ]
+        });
       }
-    ]
+    };
+
+    fetchPrediction();
+  }, [formData]);
+
+  if (loading) {
+    return (
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center space-y-4">
+            <Loader2 className="w-12 h-12 animate-spin mx-auto text-primary" />
+            <h2 className="text-2xl font-semibold text-foreground">Procesando tu perfil...</h2>
+            <p className="text-muted-foreground">Nuestro AI está analizando tus respuestas</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (!predictions) {
+    return null;
+  }
+  // Usar datos de la API de predicción
+  const analysisResults = {
+    successProbability: predictions.successProbability,
+    expectedTimelineMonths: predictions.timelineMonths,
+    profileMatch: predictions.profileType,
+    riskFactors: predictions.recommendations
+      .filter(r => r.priority === "Alta")
+      .map(r => r.category),
+    strengths: ["Perfil educativo sólido", "Experiencia relevante", "Metas claras"],
+    recommendations: predictions.recommendations.map(rec => ({
+      category: rec.category,
+      priority: rec.priority,
+      action: rec.action,
+      timeline: rec.priority === "Alta" ? "1-3 meses" : "3-6 meses"
+    }))
   };
 
   return (
@@ -93,7 +150,9 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
               <CardContent>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="text-4xl font-bold text-success">{analysisResults.successProbability}%</div>
-                  <Badge variant="secondary" className="bg-success/10 text-success">High Confidence</Badge>
+                  <Badge variant="secondary" className="bg-success/10 text-success">
+                    {analysisResults.successProbability >= 70 ? "Alta Confianza" : "Confianza Media"}
+                  </Badge>
                 </div>
                 <Progress value={analysisResults.successProbability} className="mb-4" />
                 <p className="text-sm text-muted-foreground">
