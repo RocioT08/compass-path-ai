@@ -1,1 +1,4 @@
 project_id = "fraljhzdtedzodycyvbr"
+
+[functions.career-prediction]
+verify_jwt = false

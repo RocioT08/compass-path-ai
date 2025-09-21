@@ -7,12 +7,16 @@ const corsHeaders = {
 }
 
 serve(async (req) => {
+  console.log('Career prediction function called', req.method)
+  
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
   }
 
   try {
-    const { surveyData } = await req.json()
+    const body = await req.json()
+    console.log('Request body:', body)
+    const { surveyData } = body
 
     // Aquí procesarías los datos con tu modelo
     // Por ahora simulamos la respuesta del modelo
