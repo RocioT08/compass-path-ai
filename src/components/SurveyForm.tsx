@@ -19,6 +19,7 @@ interface FormData {
   currentlySatisfaction: string;
   barriers: string;
   goals: string;
+  timeline: string;
 }
 
 const SurveyForm = ({ onComplete }: { onComplete: (data: FormData) => void }) => {
@@ -34,6 +35,7 @@ const SurveyForm = ({ onComplete }: { onComplete: (data: FormData) => void }) =>
     currentlySatisfaction: "",
     barriers: "",
     goals: "",
+    timeline: "",
   });
 
   const totalSteps = 4;
@@ -247,14 +249,31 @@ const SurveyForm = ({ onComplete }: { onComplete: (data: FormData) => void }) =>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="goals">Career Goals & Expected Timeline</Label>
+                  <Label htmlFor="goals">Career Goals</Label>
                   <Textarea 
                     id="goals"
                     value={formData.goals}
                     onChange={(e) => updateField("goals", e.target.value)}
-                    placeholder="What are your career goals and when do you hope to achieve them?"
+                    placeholder="What are your specific career goals? (e.g., get promoted, change industries, start a business)"
                     rows={4}
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="timeline">Expected Timeline</Label>
+                  <Select value={formData.timeline} onValueChange={(value) => updateField("timeline", value)}>
+                    <SelectTrigger>
+                      <SelectValue placeholder="When do you hope to achieve your goals?" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="6-months">Within 6 months</SelectItem>
+                      <SelectItem value="1-year">Within 1 year</SelectItem>
+                      <SelectItem value="1-2-years">1-2 years</SelectItem>
+                      <SelectItem value="2-3-years">2-3 years</SelectItem>
+                      <SelectItem value="3-5-years">3-5 years</SelectItem>
+                      <SelectItem value="5+-years">5+ years</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
               </div>
             )}

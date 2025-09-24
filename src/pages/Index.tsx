@@ -14,6 +14,7 @@ interface FormData {
   currentlySatisfaction: string;
   barriers: string;
   goals: string;
+  timeline: string;
 }
 
 const Index = () => {

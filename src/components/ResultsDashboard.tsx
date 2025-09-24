@@ -43,6 +43,7 @@ interface FormData {
   currentlySatisfaction: string;
   barriers: string;
   goals: string;
+  timeline: string;
 }
 
 const ResultsDashboard = ({ formData }: { formData: FormData }) => {
@@ -62,7 +63,7 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
     emotionalWellbeing: parseInt(formData.currentlySatisfaction) || 3,
     networkingLevel: 3, // Default value
     currentSituation: formData.barriers,
-    goals: formData.goals.split(",").map((g) => g.trim()),
+    goals: [formData.goals, `Timeline: ${formData.timeline}`].filter(Boolean),
   };
 
   const handleRecommendationClick = (category: string) => {
