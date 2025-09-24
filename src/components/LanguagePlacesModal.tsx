@@ -36,48 +36,48 @@ const mockPlaces: LanguagePlace[] = [
     rating: 4.8,
     priceRange: '$$$',
     languages: ['English', 'Spanish', 'French'],
-    hours: 'Lun-Vie: 9AM-8PM, Sáb: 10AM-4PM',
+    hours: 'Mon-Fri: 9AM-8PM, Sat: 10AM-4PM',
     phone: '(555) 123-4567',
-    description: 'Escuela profesional de idiomas con instructores certificados y clases personalizadas'
+    description: 'Professional language school with certified instructors and personalized classes'
   },
   {
     id: '2',
     name: 'Central Public Library',
     type: 'library',
-    address: '456 Library Ave, Centro',
+    address: '456 Library Ave, Downtown',
     distance: 0.8,
     rating: 4.5,
     priceRange: '$',
     languages: ['English', 'Mandarin', 'German'],
-    hours: 'Lun-Dom: 9AM-9PM',
+    hours: 'Mon-Sun: 9AM-9PM',
     phone: '(555) 987-6543',
-    description: 'Grupos de conversación gratuitos y programas de intercambio de idiomas'
+    description: 'Free conversation groups and language exchange programs'
   },
   {
     id: '3',
     name: 'Polyglot Café',
     type: 'cafe',
-    address: '789 Coffee St, Barrio Cultural',
+    address: '789 Coffee St, Cultural District',
     distance: 1.2,
     rating: 4.3,
     priceRange: '$$',
     languages: ['English', 'Italian', 'Portuguese'],
-    hours: 'Diario: 7AM-10PM',
+    hours: 'Daily: 7AM-10PM',
     phone: '(555) 456-7890',
-    description: 'Encuentros semanales de conversación en un ambiente acogedor con café y snacks'
+    description: 'Weekly conversation meetups in a cozy environment with coffee and snacks'
   },
   {
     id: '4',
     name: 'Community Learning Hub',
     type: 'community_center',
-    address: '321 Community Blvd, Zona Norte',
+    address: '321 Community Blvd, North Zone',
     distance: 1.5,
     rating: 4.6,
     priceRange: '$',
     languages: ['English', 'Spanish', 'Arabic'],
-    hours: 'Lun-Vie: 6PM-9PM, Sáb: 10AM-2PM',
+    hours: 'Mon-Fri: 6PM-9PM, Sat: 10AM-2PM',
     phone: '(555) 321-0987',
-    description: 'Clases grupales económicas y programas de integración cultural'
+    description: 'Affordable group classes and cultural integration programs'
   },
   {
     id: '5',
@@ -88,29 +88,29 @@ const mockPlaces: LanguagePlace[] = [
     rating: 4.7,
     priceRange: '$$',
     languages: ['English', 'French', 'Japanese', 'Korean'],
-    hours: 'Lun-Sáb: 8AM-7PM',
+    hours: 'Mon-Sat: 8AM-7PM',
     phone: '(555) 654-3210',
-    description: 'Instituto universitario con programas intensivos y certificaciones internacionales'
+    description: 'University institute with intensive programs and international certifications'
   },
   {
     id: '6',
     name: 'Neighborhood Conversation Circle',
     type: 'community_center',
-    address: '852 Park Avenue, Residencial',
+    address: '852 Park Avenue, Residential',
     distance: 1.8,
     rating: 4.2,
     priceRange: '$',
     languages: ['English', 'Spanish'],
-    hours: 'Mar y Jue: 7PM-9PM, Sáb: 3PM-5PM',
-    description: 'Círculos de conversación informales para practicar inglés en un ambiente relajado'
+    hours: 'Tue & Thu: 7PM-9PM, Sat: 3PM-5PM',
+    description: 'Informal conversation circles to practice English in a relaxed environment'
   }
 ];
 
 const typeLabels = {
-  school: 'Escuela de Idiomas',
-  library: 'Biblioteca',
+  school: 'Language School',
+  library: 'Library',
   cafe: 'Café',
-  community_center: 'Centro Comunitario'
+  community_center: 'Community Center'
 };
 
 const typeColors = {
@@ -153,13 +153,13 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
       setUserLocation(coords);
       
       toast({
-        title: "Ubicación detectada",
-        description: "Mostrando lugares cerca de ti",
+        title: "Location detected",
+        description: "Showing places near you",
       });
     } catch (error) {
       toast({
-        title: "Información",
-        description: "Mostrando lugares en tu ciudad con distancias aproximadas.",
+        title: "Information",
+        description: "Showing places in your city with approximate distances.",
       });
       setUserLocation([-74.006, 40.7128]); // Default coordinates
     }
@@ -220,7 +220,7 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <MapPin className="h-5 w-5" />
-            Lugares para Aprender Idiomas
+            Language Learning Places
           </DialogTitle>
         </DialogHeader>
 
@@ -238,11 +238,11 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
               ) : (
                 <Navigation className="h-4 w-4 mr-2" />
               )}
-              Detectar Ubicación
+              Detect Location
             </Button>
             
             <Badge variant="secondary" className="px-3 py-1">
-              {filteredPlaces.length} lugares encontrados
+              {filteredPlaces.length} places found
             </Badge>
           </div>
 
@@ -250,10 +250,10 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             <Select value={filters.language} onValueChange={(value) => setFilters(prev => ({ ...prev, language: value }))}>
               <SelectTrigger>
-                <SelectValue placeholder="Idioma" />
+                <SelectValue placeholder="Language" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Todos los idiomas</SelectItem>
+                <SelectItem value="all">All languages</SelectItem>
                 <SelectItem value="english">English</SelectItem>
                 <SelectItem value="french">Français</SelectItem>
               </SelectContent>
@@ -261,31 +261,31 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
 
             <Select value={filters.type} onValueChange={(value) => setFilters(prev => ({ ...prev, type: value }))}>
               <SelectTrigger>
-                <SelectValue placeholder="Tipo" />
+                <SelectValue placeholder="Type" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Todos los tipos</SelectItem>
-                <SelectItem value="school">Escuelas</SelectItem>
-                <SelectItem value="library">Bibliotecas</SelectItem>
+                <SelectItem value="all">All types</SelectItem>
+                <SelectItem value="school">Schools</SelectItem>
+                <SelectItem value="library">Libraries</SelectItem>
                 <SelectItem value="cafe">Cafés</SelectItem>
-                <SelectItem value="community_center">Centros Comunitarios</SelectItem>
+                <SelectItem value="community_center">Community Centers</SelectItem>
               </SelectContent>
             </Select>
 
             <Select value={filters.priceRange} onValueChange={(value) => setFilters(prev => ({ ...prev, priceRange: value }))}>
               <SelectTrigger>
-                <SelectValue placeholder="Precio" />
+                <SelectValue placeholder="Price" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">Todos los precios</SelectItem>
-                <SelectItem value="$">$ (Económico)</SelectItem>
-                <SelectItem value="$$">$$ (Moderado)</SelectItem>
+                <SelectItem value="all">All prices</SelectItem>
+                <SelectItem value="$">$ (Budget)</SelectItem>
+                <SelectItem value="$$">$$ (Moderate)</SelectItem>
                 <SelectItem value="$$$">$$$ (Premium)</SelectItem>
               </SelectContent>
             </Select>
 
             <Button variant="outline" size="sm" onClick={clearAllFilters}>
-              Limpiar Filtros
+              Clear Filters
             </Button>
           </div>
 

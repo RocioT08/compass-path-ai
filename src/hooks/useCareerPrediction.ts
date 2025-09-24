@@ -43,7 +43,7 @@ export const useCareerPrediction = () => {
 
       return data as CareerPrediction
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error al procesar predicción')
+      setError(err instanceof Error ? err.message : 'Error processing prediction')
       return null
     } finally {
       setLoading(false)

@@ -84,19 +84,19 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
         toast({
           title: "Error",
           description:
-            "No se pudo procesar la predicción. Usando datos de ejemplo.",
+            "Could not process the prediction. Using sample data.",
           variant: "destructive",
         });
         // Fallback to mock data if API fails
         setPredictions({
           successProbability: 78,
           timelineMonths: 18,
-          profileType: "Profesional en Transición",
+          profileType: "Professional in Transition",
           recommendations: [
             {
-              category: "Idioma",
-              priority: "Alta",
-              action: "Mejorar fluidez en inglés técnico",
+              category: "Language",
+              priority: "High",
+              action: "Improve technical English fluency",
               resources: ["Coursera Business English", "LinkedIn Learning"],
             },
           ],
@@ -114,10 +114,10 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
           <div className="text-center space-y-4">
             <Loader2 className="w-12 h-12 animate-spin mx-auto text-primary" />
             <h2 className="text-2xl font-semibold text-foreground">
-              Procesando tu perfil...
+              Processing your profile...
             </h2>
             <p className="text-muted-foreground">
-              Nuestro AI está analizando tus respuestas
+              Our AI is analyzing your responses
             </p>
           </div>
         </div>
@@ -134,18 +134,18 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
     expectedTimelineMonths: predictions.timelineMonths,
     profileMatch: predictions.profileType,
     riskFactors: predictions.recommendations
-      .filter((r) => r.priority === "Alta")
+      .filter((r) => r.priority === "High")
       .map((r) => r.category),
     strengths: [
-      "Perfil educativo sólido",
-      "Experiencia relevante",
-      "Metas claras",
+      "Strong educational profile",
+      "Relevant experience",
+      "Clear goals",
     ],
     recommendations: predictions.recommendations.map((rec) => ({
       category: rec.category,
       priority: rec.priority,
       action: rec.action,
-      timeline: rec.priority === "Alta" ? "1-3 meses" : "3-6 meses",
+      timeline: rec.priority === "High" ? "1-3 months" : "3-6 months",
     })),
   };
 
@@ -191,8 +191,8 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                     className="bg-success/10 text-success"
                   >
                     {analysisResults.successProbability >= 70
-                      ? "Alta Confianza"
-                      : "Confianza Media"}
+                      ? "High Confidence"
+                      : "Medium Confidence"}
                   </Badge>
                 </div>
                 <Progress
