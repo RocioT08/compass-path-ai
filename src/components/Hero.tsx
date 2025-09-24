@@ -107,43 +107,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Emotional Images Grid */}
-        <div className="container mx-auto px-4 mt-20 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <div className="group overflow-hidden rounded-lg shadow-strong hover:shadow-elegant transition-all duration-300 hover:scale-105">
-              <img 
-                src={multiculturalTeam}
-                alt="Diverse multicultural team working together in professional environment"
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="group overflow-hidden rounded-lg shadow-strong hover:shadow-elegant transition-all duration-300 hover:scale-105">
-              <img 
-                src={professionalSuccess}
-                alt="Professional celebrating career success and achievement"
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="group overflow-hidden rounded-lg shadow-strong hover:shadow-elegant transition-all duration-300 hover:scale-105">
-              <img 
-                src={cosmopolitanSkyline}
-                alt="Modern cosmopolitan city skyline representing new opportunities"
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="group overflow-hidden rounded-lg shadow-strong hover:shadow-elegant transition-all duration-300 hover:scale-105">
-              <img 
-                src={networkingCultural}
-                alt="Professional networking and cultural exchange event"
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };
