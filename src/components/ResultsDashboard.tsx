@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -375,9 +376,11 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                   <Share2 className="w-4 h-4 mr-2" />
                   Share with Advisor
                 </Button>
-                <Button variant="secondary" className="w-full justify-start">
-                  <Users className="w-4 h-4 mr-2" />
-                  Find Peer Network
+                <Button variant="secondary" className="w-full justify-start" asChild>
+                  <Link to="/peer-network">
+                    <Users className="w-4 h-4 mr-2" />
+                    Find Peer Network
+                  </Link>
                 </Button>
               </CardContent>
             </Card>
