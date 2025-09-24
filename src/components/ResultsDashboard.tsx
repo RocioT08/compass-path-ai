@@ -77,8 +77,8 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
       if (result) {
         setPredictions(result);
         toast({
-          title: "Análisis completado",
-          description: "Tu reporte de inteligencia de carrera está listo.",
+          title: "Analysis completed",
+          description: "Your career intelligence report is ready.",
         });
       } else if (error) {
         toast({
@@ -340,7 +340,7 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                           </Badge>
                           {isLanguageCard && (
                             <Badge variant="outline" className="text-xs">
-                              Clic para lugares
+                              Click for places
                             </Badge>
                           )}
                         </div>
