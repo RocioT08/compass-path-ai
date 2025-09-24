@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Directorios de dependencias de Python
+venv/
+__pycache__/
+
+# Archivos generados por Python
+*.pyc
