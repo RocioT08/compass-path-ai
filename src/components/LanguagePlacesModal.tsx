@@ -295,9 +295,9 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
               <Card className="text-center py-8">
                 <CardContent>
                   <MapPin className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
-                  <p className="text-muted-foreground">No se encontraron lugares con los filtros seleccionados.</p>
+                  <p className="text-muted-foreground">No places were found with the selected filters.</p>
                   <Button variant="outline" onClick={clearAllFilters} className="mt-4">
-                    Mostrar todos los lugares
+                    Show all places
                   </Button>
                 </CardContent>
               </Card>
@@ -341,7 +341,7 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
                       
                       {place.phone && (
                         <div className="flex items-center gap-2 text-sm">
-                          <span className="font-medium">Teléfono:</span>
+                          <span className="font-medium">Phone:</span>
                           <span>{place.phone}</span>
                         </div>
                       )}
@@ -362,7 +362,7 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
                       className="w-full"
                     >
                       <ExternalLink className="h-4 w-4 mr-2" />
-                      Abrir en Google Maps
+                      Open in Google Maps
                     </Button>
                   </CardContent>
                 </Card>

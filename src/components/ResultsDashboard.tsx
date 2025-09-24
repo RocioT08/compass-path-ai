@@ -51,7 +51,7 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
   const [predictions, setPredictions] = useState<CareerPrediction | null>(null);
   const [languagePlacesOpen, setLanguagePlacesOpen] = useState(false);
 
-  // Convertir FormData a SurveyData para la API
+  // Convert FormData to SurveyData for API
   const surveyData: SurveyData = {
     age: parseInt(formData.age) || 30,
     gender: formData.gender,
@@ -128,7 +128,7 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
   if (!predictions) {
     return null;
   }
-  // Usar datos de la API de predicción
+  // Use data from prediction API
   const analysisResults = {
     successProbability: predictions.successProbability,
     expectedTimelineMonths: predictions.timelineMonths,
