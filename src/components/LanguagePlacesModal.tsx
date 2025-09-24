@@ -126,9 +126,9 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
   const [locationLoading, setLocationLoading] = useState(false);
   const [userLocation, setUserLocation] = useState<[number, number] | null>(null);
   const [filters, setFilters] = useState({
-    language: '',
-    type: '',
-    priceRange: ''
+    language: 'all',
+    type: 'all',
+    priceRange: 'all'
   });
 
   const { toast } = useToast();
@@ -170,7 +170,7 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
   useEffect(() => {
     let filtered = places;
 
-    if (filters.language) {
+    if (filters.language && filters.language !== 'all') {
       filtered = filtered.filter(place => 
         place.languages.some(lang => 
           lang.toLowerCase().includes(filters.language.toLowerCase())
@@ -178,11 +178,11 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
       );
     }
 
-    if (filters.type) {
+    if (filters.type && filters.type !== 'all') {
       filtered = filtered.filter(place => place.type === filters.type);
     }
 
-    if (filters.priceRange) {
+    if (filters.priceRange && filters.priceRange !== 'all') {
       filtered = filtered.filter(place => place.priceRange === filters.priceRange);
     }
 
@@ -208,9 +208,9 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
 
   const clearAllFilters = () => {
     setFilters({
-      language: '',
-      type: '',
-      priceRange: ''
+      language: 'all',
+      type: 'all',
+      priceRange: 'all'
     });
   };
 
@@ -253,7 +253,7 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
                 <SelectValue placeholder="Idioma" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todos los idiomas</SelectItem>
+                <SelectItem value="all">Todos los idiomas</SelectItem>
                 <SelectItem value="english">English</SelectItem>
                 <SelectItem value="spanish">Español</SelectItem>
                 <SelectItem value="french">Français</SelectItem>
@@ -272,7 +272,7 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
                 <SelectValue placeholder="Tipo" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todos los tipos</SelectItem>
+                <SelectItem value="all">Todos los tipos</SelectItem>
                 <SelectItem value="school">Escuelas</SelectItem>
                 <SelectItem value="library">Bibliotecas</SelectItem>
                 <SelectItem value="cafe">Cafés</SelectItem>
@@ -285,7 +285,7 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
                 <SelectValue placeholder="Precio" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todos los precios</SelectItem>
+                <SelectItem value="all">Todos los precios</SelectItem>
                 <SelectItem value="$">$ (Económico)</SelectItem>
                 <SelectItem value="$$">$$ (Moderado)</SelectItem>
                 <SelectItem value="$$$">$$$ (Premium)</SelectItem>
