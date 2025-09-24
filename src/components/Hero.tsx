@@ -1,23 +1,19 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Brain, TrendingUp, Users, MessageSquare, BarChart3, Target } from "lucide-react";
-import heroImage from "@/assets/hero-migration-horizon.jpg";
-import multiculturalTeam from "@/assets/multicultural-team.jpg";
-import professionalSuccess from "@/assets/professional-success.jpg";
-import cosmopolitanSkyline from "@/assets/cosmopolitan-skyline.jpg";
-import networkingCultural from "@/assets/networking-cultural.jpg";
+import inspirationalBanner from "@/assets/inspirational-banner.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-gradient-hero flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section className="relative h-[300px] bg-gradient-hero flex items-center overflow-hidden">
+      {/* Background Image with Blue Overlay */}
       <div className="absolute inset-0">
         <img 
-          src={heroImage} 
-          alt="Professional looking at modern city horizon representing migration journey and career opportunities"
-          className="w-full h-full object-cover opacity-25"
+          src={inspirationalBanner} 
+          alt="Inspirational professional banner showing diverse team and career success"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
+        <div className="absolute inset-0 bg-primary/70"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -107,42 +103,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Emotional Images Grid */}
-        <div className="container mx-auto px-4 mt-20 relative z-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <div className="group overflow-hidden rounded-lg shadow-strong hover:shadow-elegant transition-all duration-300 hover:scale-105">
-              <img 
-                src={multiculturalTeam}
-                alt="Diverse multicultural team working together in professional environment"
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="group overflow-hidden rounded-lg shadow-strong hover:shadow-elegant transition-all duration-300 hover:scale-105">
-              <img 
-                src={professionalSuccess}
-                alt="Professional celebrating career success and achievement"
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="group overflow-hidden rounded-lg shadow-strong hover:shadow-elegant transition-all duration-300 hover:scale-105">
-              <img 
-                src={cosmopolitanSkyline}
-                alt="Modern cosmopolitan city skyline representing new opportunities"
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            
-            <div className="group overflow-hidden rounded-lg shadow-strong hover:shadow-elegant transition-all duration-300 hover:scale-105">
-              <img 
-                src={networkingCultural}
-                alt="Professional networking and cultural exchange event"
-                className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
