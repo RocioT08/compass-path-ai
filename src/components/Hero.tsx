@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Brain, TrendingUp, Users, MessageSquare, BarChart3, Target } from "lucide-react";
 import heroImage from "@/assets/professional-skyline-bg.jpg";
-import heroCareerAI from "@/assets/hero-career-ai.jpg";
 import multiculturalTeam from "@/assets/multicultural-team.jpg";
 import professionalSuccess from "@/assets/professional-success.jpg";
 import cosmopolitanSkyline from "@/assets/cosmopolitan-skyline.jpg";
@@ -106,16 +105,6 @@ const Hero = () => {
               </div>
             </Card>
           </div>
-        </div>
-
-        {/* Inspirational Banner */}
-        <div className="w-full h-[300px] relative overflow-hidden mt-12">
-          <img 
-            src={heroCareerAI}
-            alt="Diverse professionals networking and collaborating in modern workplace environment"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20"></div>
         </div>
 
         {/* Emotional Images Grid */}
