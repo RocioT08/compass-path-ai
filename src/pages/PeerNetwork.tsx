@@ -49,9 +49,9 @@ const mockProfiles: Profile[] = [
     title: 'Senior Software Engineer',
     industry: 'technology',
     location: 'Toronto, CA',
-    origin: 'México',
-    experience: '8 años en Canadá',
-    bio: 'Ingeniera de software especializada en desarrollo full-stack. Ayudo a otros profesionales latinos a navegar el mercado tecnológico canadiense.',
+    origin: 'Mexico',
+    experience: '8 years in Canada',
+    bio: 'Software engineer specialized in full-stack development. I help other Latino professionals navigate the Canadian tech market.',
     linkedIn: 'https://linkedin.com/in/mariagonzalez'
   },
   {
@@ -60,9 +60,9 @@ const mockProfiles: Profile[] = [
     title: 'Financial Analyst',
     industry: 'finance',
     location: 'Vancouver, CA',
-    origin: 'Egipto',
-    experience: '5 años en Canadá',
-    bio: 'Analista financiero con experiencia en banca internacional. Mentor para profesionales del Medio Oriente.',
+    origin: 'Egypt',
+    experience: '5 years in Canada',
+    bio: 'Financial analyst with international banking experience. Mentor for Middle Eastern professionals.',
     linkedIn: 'https://linkedin.com/in/ahmedhassan'
   },
   {
@@ -72,8 +72,8 @@ const mockProfiles: Profile[] = [
     industry: 'marketing',
     location: 'Montreal, CA',
     origin: 'India',
-    experience: '6 años en Canadá',
-    bio: 'Especialista en marketing digital y growth hacking. Fundadora de una comunidad de mujeres profesionales inmigrantes.',
+    experience: '6 years in Canada',
+    bio: 'Digital marketing and growth hacking specialist. Founder of an immigrant women professionals community.',
     linkedIn: 'https://linkedin.com/in/priyasharma'
   },
   {
@@ -83,8 +83,8 @@ const mockProfiles: Profile[] = [
     industry: 'engineering',
     location: 'Calgary, CA',
     origin: 'Colombia',
-    experience: '10 años en Canadá',
-    bio: 'Ingeniero mecánico en la industria petrolera. Líder de iniciativas de diversidad e inclusión.',
+    experience: '10 years in Canada',
+    bio: 'Mechanical engineer in the oil industry. Leader of diversity and inclusion initiatives.',
     linkedIn: 'https://linkedin.com/in/carlosmendoza'
   },
   {
@@ -93,9 +93,9 @@ const mockProfiles: Profile[] = [
     title: 'Healthcare Administrator',
     industry: 'healthcare',
     location: 'Ottawa, CA',
-    origin: 'Líbano',
-    experience: '4 años en Canadá',
-    bio: 'Administradora de servicios de salud con enfoque en atención multicultural. Voluntaria en organizaciones de apoyo a refugiados.',
+    origin: 'Lebanon',
+    experience: '4 years in Canada',
+    bio: 'Healthcare services administrator with focus on multicultural care. Volunteer in refugee support organizations.',
     linkedIn: 'https://linkedin.com/in/fatimaalzahra'
   }
 ];
@@ -105,7 +105,7 @@ const mockGroups: Group[] = [
     id: '1',
     name: 'Canadian Immigrants in Tech',
     members: 15420,
-    description: 'Comunidad para profesionales de tecnología que han migrado a Canadá',
+    description: 'Community for technology professionals who have migrated to Canada',
     industry: 'technology',
     linkedInUrl: 'https://linkedin.com/groups/canadian-immigrants-tech'
   },
@@ -113,7 +113,7 @@ const mockGroups: Group[] = [
     id: '2',
     name: 'New Canadians Finance Network',
     members: 8930,
-    description: 'Red de profesionales financieros nuevos en Canadá',
+    description: 'Network of finance professionals new to Canada',
     industry: 'finance',
     linkedInUrl: 'https://linkedin.com/groups/new-canadians-finance'
   },
@@ -121,7 +121,7 @@ const mockGroups: Group[] = [
     id: '3',
     name: 'Immigrant Professionals Marketing',
     members: 6750,
-    description: 'Grupo para profesionales de marketing que buscan establecerse en Canadá',
+    description: 'Group for marketing professionals looking to establish themselves in Canada',
     industry: 'marketing',
     linkedInUrl: 'https://linkedin.com/groups/immigrant-marketing-pros'
   },
@@ -129,7 +129,7 @@ const mockGroups: Group[] = [
     id: '4',
     name: 'Engineers Without Borders Canada',
     members: 12100,
-    description: 'Ingenieros inmigrantes conectando para oportunidades profesionales',
+    description: 'Immigrant engineers connecting for professional opportunities',
     industry: 'engineering',
     linkedInUrl: 'https://linkedin.com/groups/engineers-without-borders-ca'
   },
@@ -137,7 +137,7 @@ const mockGroups: Group[] = [
     id: '5',
     name: 'Healthcare Professionals Network Canada',
     members: 9850,
-    description: 'Red de profesionales de la salud inmigrantes en Canadá',
+    description: 'Network of immigrant healthcare professionals in Canada',
     industry: 'healthcare',
     linkedInUrl: 'https://linkedin.com/groups/healthcare-professionals-canada'
   }
@@ -146,36 +146,36 @@ const mockGroups: Group[] = [
 const mockEvents: Event[] = [
   {
     id: '1',
-    title: 'Tech Networking Mixer - Nuevos Canadienses',
+    title: 'Tech Networking Mixer - New Canadians',
     date: '2024-02-15',
     time: '18:00',
     location: 'Toronto Tech Hub',
     type: 'presencial',
     industry: 'technology',
     organizer: 'Canadian Immigrants in Tech',
-    description: 'Evento de networking para profesionales de tecnología recién llegados a Canadá'
+    description: 'Networking event for technology professionals newly arrived in Canada'
   },
   {
     id: '2',
-    title: 'Webinar: Finanzas Personales para Inmigrantes',
+    title: 'Webinar: Personal Finance for Immigrants',
     date: '2024-02-20',
     time: '19:00',
     location: 'Online via Zoom',
     type: 'virtual',
     industry: 'finance',
     organizer: 'New Canadians Finance Network',
-    description: 'Aprende sobre el sistema financiero canadiense y estrategias de inversión'
+    description: 'Learn about the Canadian financial system and investment strategies'
   },
   {
     id: '3',
-    title: 'Marketing Digital Workshop',
+    title: 'Digital Marketing Workshop',
     date: '2024-02-25',
     time: '14:00',
     location: 'Vancouver Convention Center',
     type: 'presencial',
     industry: 'marketing',
     organizer: 'Immigrant Professionals Marketing',
-    description: 'Taller práctico sobre tendencias de marketing digital en el mercado canadiense'
+    description: 'Hands-on workshop on digital marketing trends in the Canadian market'
   },
   {
     id: '4',
@@ -186,7 +186,7 @@ const mockEvents: Event[] = [
     type: 'presencial',
     industry: 'engineering',
     organizer: 'Engineers Without Borders Canada',
-    description: 'Feria de empleo para ingenieros con empresas líderes en Canadá'
+    description: 'Job fair for engineers with leading Canadian companies'
   },
   {
     id: '5',
@@ -197,21 +197,21 @@ const mockEvents: Event[] = [
     type: 'virtual',
     industry: 'healthcare',
     organizer: 'Healthcare Professionals Network Canada',
-    description: 'Sesión informativa sobre licencias y certificaciones médicas en Canadá'
+    description: 'Information session on medical licenses and certifications in Canada'
   }
 ];
 
 const industries = [
-  { value: 'all', label: 'Todas las industrias' },
-  { value: 'technology', label: 'Tecnología' },
-  { value: 'finance', label: 'Finanzas' },
+  { value: 'all', label: 'All Industries' },
+  { value: 'technology', label: 'Technology' },
+  { value: 'finance', label: 'Finance' },
   { value: 'marketing', label: 'Marketing' },
-  { value: 'engineering', label: 'Ingeniería' },
-  { value: 'healthcare', label: 'Salud' }
+  { value: 'engineering', label: 'Engineering' },
+  { value: 'healthcare', label: 'Healthcare' }
 ];
 
 const locations = [
-  { value: 'all', label: 'Todas las ubicaciones' },
+  { value: 'all', label: 'All Locations' },
   { value: 'toronto', label: 'Toronto' },
   { value: 'vancouver', label: 'Vancouver' },
   { value: 'montreal', label: 'Montreal' },
@@ -247,14 +247,14 @@ const PeerNetwork = () => {
           <Link to="/">
             <Button variant="outline" size="sm">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Volver al Dashboard
+              Back to Dashboard
             </Button>
           </Link>
           
           <div className="flex-1">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Red de Profesionales</h1>
+            <h1 className="text-3xl font-bold text-foreground mb-2">Professional Network</h1>
             <p className="text-muted-foreground">
-              Conecta con profesionales migrantes, únete a comunidades y asiste a eventos de networking
+              Connect with migrant professionals, join communities and attend networking events
             </p>
           </div>
         </div>
@@ -262,18 +262,18 @@ const PeerNetwork = () => {
         {/* Filters */}
         <Card className="mb-8">
           <CardHeader>
-            <CardTitle className="text-lg">Filtros</CardTitle>
+            <CardTitle className="text-lg">Filters</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="text-sm font-medium mb-2 block">Industria</label>
+                <label className="text-sm font-medium mb-2 block">Industry</label>
                 <Select 
                   value={filters.industry} 
                   onValueChange={(value) => setFilters(prev => ({ ...prev, industry: value }))}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Seleccionar industria" />
+                    <SelectValue placeholder="Select industry" />
                   </SelectTrigger>
                   <SelectContent>
                     {industries.map(industry => (
@@ -286,13 +286,13 @@ const PeerNetwork = () => {
               </div>
               
               <div>
-                <label className="text-sm font-medium mb-2 block">Ubicación</label>
+                <label className="text-sm font-medium mb-2 block">Location</label>
                 <Select 
                   value={filters.location} 
                   onValueChange={(value) => setFilters(prev => ({ ...prev, location: value }))}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Seleccionar ubicación" />
+                    <SelectValue placeholder="Select location" />
                   </SelectTrigger>
                   <SelectContent>
                     {locations.map(location => (
@@ -312,7 +312,7 @@ const PeerNetwork = () => {
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-2 mb-4">
               <User className="h-5 w-5" />
-              <h2 className="text-xl font-semibold">Profesionales Destacados</h2>
+              <h2 className="text-xl font-semibold">Featured Professionals</h2>
               <Badge variant="secondary">{filteredProfiles.length}</Badge>
             </div>
             
@@ -338,7 +338,7 @@ const PeerNetwork = () => {
                             <Button variant="outline" size="sm" asChild>
                               <a href={profile.linkedIn} target="_blank" rel="noopener noreferrer">
                                 <Linkedin className="h-4 w-4 mr-2" />
-                                Conectar
+                                Connect
                               </a>
                             </Button>
                           )}
@@ -354,7 +354,7 @@ const PeerNetwork = () => {
                             {industries.find(i => i.value === profile.industry)?.label}
                           </Badge>
                           <Badge variant="secondary">
-                            Origen: {profile.origin}
+                            Origin: {profile.origin}
                           </Badge>
                           <Badge variant="secondary">
                             {profile.experience}
@@ -377,10 +377,10 @@ const PeerNetwork = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Users className="h-5 w-5" />
-                  Grupos de LinkedIn
+                  LinkedIn Groups
                 </CardTitle>
                 <CardDescription>
-                  Comunidades profesionales recomendadas
+                  Recommended professional communities
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -390,7 +390,7 @@ const PeerNetwork = () => {
                     <p className="text-xs text-muted-foreground mb-2">{group.description}</p>
                     <div className="flex items-center justify-between">
                       <Badge variant="outline" className="text-xs">
-                        {group.members.toLocaleString()} miembros
+                        {group.members.toLocaleString()} members
                       </Badge>
                       <Button variant="ghost" size="sm" asChild>
                         <a href={group.linkedInUrl} target="_blank" rel="noopener noreferrer">
@@ -408,10 +408,10 @@ const PeerNetwork = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Calendar className="h-5 w-5" />
-                  Próximos Eventos
+                  Upcoming Events
                 </CardTitle>
                 <CardDescription>
-                  Oportunidades de networking
+                  Networking opportunities
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
@@ -430,7 +430,7 @@ const PeerNetwork = () => {
                       variant={event.type === 'virtual' ? 'secondary' : 'default'} 
                       className="text-xs mb-2"
                     >
-                      {event.type === 'virtual' ? 'Virtual' : 'Presencial'}
+                      {event.type === 'virtual' ? 'Virtual' : 'In-Person'}
                     </Badge>
                     <p className="text-xs text-muted-foreground">{event.description}</p>
                   </div>
