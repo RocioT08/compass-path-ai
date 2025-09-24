@@ -13,7 +13,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
         <img 
-          src={heroImage} 
+          src={multiculturalTeam} 
           alt="Professional looking at modern city horizon representing migration journey and career opportunities"
           className="w-full h-full object-cover opacity-25"
         />
