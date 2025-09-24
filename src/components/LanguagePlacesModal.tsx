@@ -255,15 +255,7 @@ const LanguagePlacesModal: React.FC<LanguagePlacesModalProps> = ({ open, onClose
               <SelectContent>
                 <SelectItem value="all">Todos los idiomas</SelectItem>
                 <SelectItem value="english">English</SelectItem>
-                <SelectItem value="spanish">Español</SelectItem>
                 <SelectItem value="french">Français</SelectItem>
-                <SelectItem value="german">Deutsch</SelectItem>
-                <SelectItem value="italian">Italiano</SelectItem>
-                <SelectItem value="portuguese">Português</SelectItem>
-                <SelectItem value="mandarin">中文</SelectItem>
-                <SelectItem value="japanese">日本語</SelectItem>
-                <SelectItem value="korean">한국어</SelectItem>
-                <SelectItem value="arabic">العربية</SelectItem>
               </SelectContent>
             </Select>
 
