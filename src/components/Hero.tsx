@@ -36,7 +36,7 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12">
               <Button variant="hero" size="lg" className="text-lg px-8 py-4">
-                Start Career Analysis AI
+                Start Career Analysis AI and ML
               </Button>
               <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
                 View Success Stories
