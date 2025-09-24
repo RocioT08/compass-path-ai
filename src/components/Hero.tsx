@@ -41,7 +41,7 @@ const Hero = () => {
               <Button variant="outline" size="lg" className="text-lg px-8 py-4">
                 View Success Stories
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4" onClick={() => window.location.href = '/insights'}>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4" onClick={() => window.open('https://dashboard-pulse-scan.lovable.app/', '_blank')}>
                 Insights Our Data
               </Button>
             </div>
