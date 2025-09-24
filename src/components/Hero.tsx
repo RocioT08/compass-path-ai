@@ -38,8 +38,11 @@ const Hero = () => {
               <Button variant="hero" size="lg" className="text-lg px-8 py-4">
                 Start Career Analysis AI and ML
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/10">
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
                 View Success Stories
+              </Button>
+              <Button variant="outline" size="lg" className="text-lg px-8 py-4" onClick={() => window.location.href = '/insights'}>
+                Insights Our Data
               </Button>
             </div>
 
