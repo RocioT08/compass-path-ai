@@ -31,7 +31,7 @@ const Hero = () => {
             
             <h1 className="text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
               Transform Your 
-              <span className="text-transparent bg-gradient-to-r from-primary-glow to-secondary bg-clip-text"> Migration</span> Journey
+              <span className="text-primary"> Migration</span> Journey
             </h1>
             
             <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
