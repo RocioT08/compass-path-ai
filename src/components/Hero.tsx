@@ -10,20 +10,22 @@ import networkingCultural from "@/assets/networking-cultural.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gradient-hero flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={multiculturalTeam} 
-          alt="Professional looking at modern city horizon representing migration journey and career opportunities"
-          className="w-full h-full object-cover opacity-25"
-        />
-        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
-      </div>
-
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Hero Content */}
-          <div className="text-center lg:text-left">
+          {/* Hero Content with Background */}
+          <div className="relative text-center lg:text-left">
+            {/* Background Image for Title Only */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <img 
+                src={multiculturalTeam} 
+                alt="Professional looking at modern city horizon representing migration journey and career opportunities"
+                className="w-full h-full object-cover opacity-25"
+              />
+              <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
+            </div>
+            
+            {/* Title Content */}
+            <div className="relative z-10 p-8">
             <div className="flex items-center justify-center lg:justify-start gap-2 mb-6">
               <Brain className="h-8 w-8 text-primary-glow" />
               <span className="text-lg font-semibold text-primary-foreground/80">AI Career Intelligence</span>
@@ -64,6 +66,7 @@ const Hero = () => {
                 <div className="text-3xl font-bold mb-1">1,200+</div>
                 <div className="text-sm text-primary-foreground/70">Success Stories</div>
               </div>
+            </div>
             </div>
           </div>
 
