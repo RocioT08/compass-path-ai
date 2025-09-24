@@ -106,7 +106,7 @@ const Hero = () => {
             </Card>
           </div>
         </div>
-
+      </div>
     </section>
   );
 };
