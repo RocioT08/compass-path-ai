@@ -6,10 +6,21 @@ import multiculturalTeam from "@/assets/multicultural-team.jpg";
 import professionalSuccess from "@/assets/professional-success.jpg";
 import cosmopolitanSkyline from "@/assets/cosmopolitan-skyline.jpg";
 import networkingCultural from "@/assets/networking-cultural.jpg";
+import professionalCitySkyline from "@/assets/professional-city-skyline.jpg";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gradient-hero flex items-center overflow-hidden">
+      {/* Background Image with Blue Overlay */}
+      <div className="absolute inset-0">
+        <img 
+          src={professionalCitySkyline} 
+          alt="Professional looking at modern city skyline with tall skyscrapers"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-hero opacity-85"></div>
+      </div>
+      
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Hero Content with Background */}
