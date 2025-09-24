@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Brain, TrendingUp, Users, MessageSquare, BarChart3, Target } from "lucide-react";
+import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-migration-horizon.jpg";
 import multiculturalTeam from "@/assets/multicultural-team.jpg";
 import professionalSuccess from "@/assets/professional-success.jpg";
@@ -55,9 +56,11 @@ const Hero = () => {
               <Button variant="hero" size="lg" className="text-lg px-8 py-4">
                 Start Career Analysis AI and ML
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8 py-4">
-                View Success Stories
-              </Button>
+              <Link to="/success-stories">
+                <Button variant="outline" size="lg" className="text-lg px-8 py-4">
+                  View Success Stories
+                </Button>
+              </Link>
               <Button variant="outline" size="lg" className="text-lg px-8 py-4" onClick={() => window.location.href = '/insights'}>
                 Insights Our Data
               </Button>
