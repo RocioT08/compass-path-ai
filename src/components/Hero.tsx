@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Brain, TrendingUp, Users, MessageSquare, BarChart3, Target } from "lucide-react";
-import heroImage from "@/assets/professional-skyline-bg.jpg";
+import heroImage from "@/assets/hero-migration-horizon.jpg";
 import multiculturalTeam from "@/assets/multicultural-team.jpg";
 import professionalSuccess from "@/assets/professional-success.jpg";
 import cosmopolitanSkyline from "@/assets/cosmopolitan-skyline.jpg";
@@ -17,7 +17,7 @@ const Hero = () => {
           alt="Professional looking at modern city horizon representing migration journey and career opportunities"
           className="w-full h-full object-cover opacity-25"
         />
-        <div className="absolute inset-0 bg-primary/70"></div>
+        <div className="absolute inset-0 bg-gradient-hero opacity-90"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
