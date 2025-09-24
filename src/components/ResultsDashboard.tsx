@@ -29,6 +29,7 @@ import {
   type SurveyData,
 } from "@/hooks/useCareerPrediction";
 import { useToast } from "@/hooks/use-toast";
+import LanguagePlacesModal from "@/components/LanguagePlacesModal";
 
 interface FormData {
   age: string;
@@ -47,6 +48,7 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
   const { getPrediction, loading, error } = useCareerPrediction();
   const { toast } = useToast();
   const [predictions, setPredictions] = useState<CareerPrediction | null>(null);
+  const [languagePlacesOpen, setLanguagePlacesOpen] = useState(false);
 
   // Convertir FormData a SurveyData para la API
   const surveyData: SurveyData = {
@@ -60,6 +62,12 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
     networkingLevel: 3, // Default value
     currentSituation: formData.barriers,
     goals: formData.goals.split(",").map((g) => g.trim()),
+  };
+
+  const handleRecommendationClick = (category: string) => {
+    if (category.toLowerCase().includes('idioma') || category.toLowerCase().includes('language')) {
+      setLanguagePlacesOpen(true);
+    }
   };
 
   useEffect(() => {
@@ -306,31 +314,46 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
-                {analysisResults.recommendations.map((rec, index) => (
-                  <div
-                    key={index}
-                    className="border-l-4 border-primary pl-4 pb-4 border-b last:border-b-0"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-semibold text-sm">{rec.category}</h4>
-                      <Badge
-                        variant={
-                          rec.priority === "High" ? "destructive" : "secondary"
-                        }
-                        className="text-xs"
-                      >
-                        {rec.priority}
-                      </Badge>
+                {analysisResults.recommendations.map((rec, index) => {
+                  const isLanguageCard = rec.category.toLowerCase().includes('idioma') || 
+                                       rec.category.toLowerCase().includes('language');
+                  
+                  return (
+                    <div
+                      key={index}
+                      className={`border-l-4 border-primary pl-4 pb-4 border-b last:border-b-0 ${
+                        isLanguageCard ? 'cursor-pointer hover:bg-muted/50 transition-colors' : ''
+                      }`}
+                      onClick={() => isLanguageCard ? handleRecommendationClick(rec.category) : undefined}
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="font-semibold text-sm">{rec.category}</h4>
+                        <div className="flex items-center gap-2">
+                          <Badge
+                            variant={
+                              rec.priority === "High" ? "destructive" : "secondary"
+                            }
+                            className="text-xs"
+                          >
+                            {rec.priority}
+                          </Badge>
+                          {isLanguageCard && (
+                            <Badge variant="outline" className="text-xs">
+                              Clic para lugares
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        {rec.action}
+                      </p>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <Clock className="h-3 w-3" />
+                        {rec.timeline}
+                      </div>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-2">
-                      {rec.action}
-                    </p>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Clock className="h-3 w-3" />
-                      {rec.timeline}
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </CardContent>
             </Card>
 
@@ -360,6 +383,12 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
             </Card>
           </div>
         </div>
+
+        {/* Language Places Modal */}
+        <LanguagePlacesModal 
+          open={languagePlacesOpen} 
+          onClose={() => setLanguagePlacesOpen(false)} 
+        />
       </div>
     </section>
   );
