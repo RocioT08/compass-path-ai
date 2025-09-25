@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
-import { Users, Calendar, ExternalLink, ArrowLeft, MapPin, Building, User, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Users, Calendar, ExternalLink, ArrowLeft, MapPin, Building, User, Linkedin, X } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Profile {
   id: string;
@@ -225,10 +225,15 @@ const locations = [
 ];
 
 const PeerNetwork = () => {
+  const navigate = useNavigate();
   const [filters, setFilters] = useState({
     industry: 'all',
     location: 'all'
   });
+
+  const handleClose = () => {
+    navigate('/');
+  };
 
   const filteredProfiles = mockProfiles.filter(profile => {
     if (filters.industry !== 'all' && profile.industry !== filters.industry) return false;
@@ -248,20 +253,31 @@ const PeerNetwork = () => {
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
-        <div className="flex items-center gap-4 mb-8">
-          <Link to="/">
-            <Button variant="outline" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Dashboard
-            </Button>
-          </Link>
-          
-          <div className="flex-1">
-            <h1 className="text-3xl font-bold text-foreground mb-2">Professional Network</h1>
-            <p className="text-muted-foreground">
-              Connect with migrant professionals, join communities and attend networking events
-            </p>
+        <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center gap-4">
+            <Link to="/">
+              <Button variant="outline" size="sm">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Back to Dashboard
+              </Button>
+            </Link>
+            
+            <div>
+              <h1 className="text-3xl font-bold text-foreground mb-2">Professional Network</h1>
+              <p className="text-muted-foreground">
+                Connect with migrant professionals, join communities and attend networking events
+              </p>
+            </div>
           </div>
+
+          <Button 
+            variant="ghost" 
+            size="sm" 
+            onClick={handleClose}
+            className="hover:bg-secondary/80 transition-colors"
+          >
+            <X className="h-5 w-5" />
+          </Button>
         </div>
 
         {/* Filters */}
