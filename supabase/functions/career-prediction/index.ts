@@ -143,6 +143,6 @@ function determineProfileType(data: any) {
   } else if (data.emotionalWellbeing < 3) {
     return "Profesional necesitando apoyo emocional"
   } else {
-    return "Profesional en transición"
+    return "Professional in Transition"
   }
 }
