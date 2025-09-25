@@ -52,6 +52,7 @@ const mockProfiles: Profile[] = [
     origin: 'Mexico',
     experience: '8 years in Canada',
     bio: 'Software engineer specialized in full-stack development. I help other Latino professionals navigate the Canadian tech market.',
+    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face',
     linkedIn: 'https://linkedin.com/in/mariagonzalez'
   },
   {
@@ -63,6 +64,7 @@ const mockProfiles: Profile[] = [
     origin: 'Egypt',
     experience: '5 years in Canada',
     bio: 'Financial analyst with international banking experience. Mentor for Middle Eastern professionals.',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
     linkedIn: 'https://linkedin.com/in/ahmedhassan'
   },
   {
@@ -74,6 +76,7 @@ const mockProfiles: Profile[] = [
     origin: 'India',
     experience: '6 years in Canada',
     bio: 'Digital marketing and growth hacking specialist. Founder of an immigrant women professionals community.',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face',
     linkedIn: 'https://linkedin.com/in/priyasharma'
   },
   {
@@ -85,6 +88,7 @@ const mockProfiles: Profile[] = [
     origin: 'Colombia',
     experience: '10 years in Canada',
     bio: 'Mechanical engineer in the oil industry. Leader of diversity and inclusion initiatives.',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
     linkedIn: 'https://linkedin.com/in/carlosmendoza'
   },
   {
@@ -96,6 +100,7 @@ const mockProfiles: Profile[] = [
     origin: 'Lebanon',
     experience: '4 years in Canada',
     bio: 'Healthcare services administrator with focus on multicultural care. Volunteer in refugee support organizations.',
+    avatar: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=150&h=150&fit=crop&crop=face',
     linkedIn: 'https://linkedin.com/in/fatimaalzahra'
   }
 ];
