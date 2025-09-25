@@ -38,9 +38,9 @@ const Hero = () => {
             
             {/* Title Content */}
             <div className="relative z-10 p-4 sm:p-6 lg:p-8">
-            <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 sm:mb-6">
-              <Compass className="h-6 w-6 sm:h-8 sm:w-8 text-primary-glow" />
-              <span className="text-sm sm:text-lg font-semibold text-primary-foreground/80">AI Pathfinder</span>
+            <div className="flex items-center justify-center lg:justify-start gap-3 mb-4 sm:mb-6">
+              <Compass className="h-8 w-8 sm:h-10 sm:w-10 text-white drop-shadow-lg" />
+              <span className="text-lg sm:text-xl font-bold text-white drop-shadow-lg tracking-wide">AI Pathfinder</span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-4 sm:mb-6 leading-tight">
