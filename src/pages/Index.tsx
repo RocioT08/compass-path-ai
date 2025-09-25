@@ -44,7 +44,7 @@ const Index = () => {
       )}
       
       {currentView === "survey" && (
-        <SurveyForm onComplete={completeSurvey} />
+        <SurveyForm onComplete={completeSurvey} onBack={resetToHome} />
       )}
       
       {currentView === "results" && surveyData && (

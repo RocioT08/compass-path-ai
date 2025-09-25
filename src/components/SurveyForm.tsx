@@ -23,7 +23,7 @@ interface FormData {
   timeline: string;
 }
 
-const SurveyForm = ({ onComplete }: { onComplete: (data: FormData) => void }) => {
+const SurveyForm = ({ onComplete, onBack }: { onComplete: (data: FormData) => void; onBack?: () => void }) => {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
     age: "",
@@ -65,12 +65,19 @@ const SurveyForm = ({ onComplete }: { onComplete: (data: FormData) => void }) =>
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Back to Home Button */}
         <div className="mb-6">
-          <Button variant="hero" size="default" className="shadow-lg" asChild>
-            <Link to="/">
+          {onBack ? (
+            <Button variant="hero" size="default" className="shadow-lg" onClick={onBack}>
               <Home className="h-4 w-4 mr-2" />
               Back to Home
-            </Link>
-          </Button>
+            </Button>
+          ) : (
+            <Button variant="hero" size="default" className="shadow-lg" asChild>
+              <Link to="/">
+                <Home className="h-4 w-4 mr-2" />
+                Back to Home
+              </Link>
+            </Button>
+          )}
         </div>
         
         <div className="text-center mb-8">
