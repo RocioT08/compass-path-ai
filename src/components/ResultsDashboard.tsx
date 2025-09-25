@@ -150,10 +150,11 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
       ...predictions.recommendations.map((rec) => ({
         category: rec.category === "Idioma" ? "Language Skills" :
                  rec.category === "Experiencia" ? "Experience" : rec.category,
-        priority: rec.priority,
+        priority: rec.priority === "Alta" ? "High" : 
+                 rec.priority === "Media" ? "Medium" : rec.priority,
         action: rec.action === "Mejorar nivel de inglés/idioma local" ? "Improve English/local language proficiency" :
                 rec.action === "Ganar experiencia local" ? "Gain local experience" : rec.action,
-        timeline: rec.priority === "High" ? "1-3 months" : "3-6 months",
+        timeline: rec.priority === "High" || rec.priority === "Alta" ? "1-3 months" : "3-6 months",
       })),
       // Add networking card
       {
@@ -350,7 +351,8 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                         <div className="flex items-center gap-2">
                           <Badge
                             variant={
-                              rec.priority === "High" ? "destructive" : "secondary"
+                              rec.priority === "High" ? "destructive" : 
+                              rec.priority === "Medium" ? "secondary" : "secondary"
                             }
                             className="text-xs"
                           >
