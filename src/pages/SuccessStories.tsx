@@ -89,7 +89,7 @@ const mockSuccessStories: SuccessStory[] = [
       'Built team of 5 marketers',
       'Increased company revenue by 40%'
     ],
-    story: 'The AI Pathfinder helped me understand the Canadian marketing landscape and positioned me for leadership roles. The networking opportunities were invaluable - I met my current manager through a platform event!',
+    story: 'The Pathfinder AI helped me understand the Canadian marketing landscape and positioned me for leadership roles. The networking opportunities were invaluable - I met my current manager through a platform event!',
     rating: 5,
     completionYear: 2022
   },
@@ -261,7 +261,7 @@ const SuccessStories = () => {
           <p className="text-xl text-primary mb-2">Real People, Real Results</p>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Discover how professionals from around the world have transformed their careers 
-            and achieved their dreams with our AI Pathfinder platform.
+            and achieved their dreams with our Pathfinder AI platform.
           </p>
         </div>
 
