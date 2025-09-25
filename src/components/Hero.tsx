@@ -59,11 +59,11 @@ const Hero = () => {
               </Button>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Link to="/success-stories" className="flex-1 sm:flex-none">
-                  <Button variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto min-w-0 sm:min-w-[180px]">
+                  <Button variant="hero" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 w-full sm:w-auto min-w-0 sm:min-w-[180px]">
                     Success Stories
                   </Button>
                 </Link>
-                <Button variant="outline" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 min-w-0 sm:min-w-[160px]" onClick={() => window.location.href = '/insights'}>
+                <Button variant="hero" size="lg" className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 min-w-0 sm:min-w-[160px]" onClick={() => window.location.href = '/insights'}>
                   View Insights
                 </Button>
               </div>
