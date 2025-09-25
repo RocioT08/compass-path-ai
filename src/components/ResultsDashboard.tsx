@@ -138,9 +138,10 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
     expectedTimelineMonths: predictions.timelineMonths,
     profileMatch: predictions.profileType,
     riskFactors: predictions.recommendations
-      .filter((r) => r.priority === "High")
+      .filter((r) => r.priority === "High" || r.priority === "Alta")
       .map((r) => r.category === "Idioma" ? "Language Skills" : 
-                 r.category === "Experiencia" ? "Experience" : r.category),
+                 r.category === "Experiencia" ? "Experience" : r.category)
+      .concat(["Professional Networking"]), // Always include networking as high priority
     strengths: [
       "Strong educational profile",
       "Relevant experience",
