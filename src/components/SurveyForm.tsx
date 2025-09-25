@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight, ArrowLeft, Brain, Home } from "lucide-react";
+import { ArrowRight, ArrowLeft, Compass, Home } from "lucide-react";
 
 interface FormData {
   age: string;
@@ -82,8 +82,8 @@ const SurveyForm = ({ onComplete, onBack }: { onComplete: (data: FormData) => vo
         
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <Brain className="h-6 w-6 text-primary" />
-            <span className="text-primary font-semibold">Career Intelligence Survey</span>
+            <Compass className="h-6 w-6 text-primary" />
+            <span className="text-primary font-semibold">Pathfinder Survey</span>
           </div>
           <h2 className="text-3xl font-bold mb-4">Share Your Journey</h2>
           <p className="text-muted-foreground text-lg">Help our AI understand your unique situation for personalized insights</p>

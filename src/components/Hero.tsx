@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Brain, TrendingUp, Users, MessageSquare, BarChart3, Target } from "lucide-react";
+import { Compass, TrendingUp, Users, MessageSquare, BarChart3, Target } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroImage from "@/assets/hero-migration-horizon.jpg";
 import multiculturalTeam from "@/assets/multicultural-team.jpg";
@@ -39,8 +39,8 @@ const Hero = () => {
             {/* Title Content */}
             <div className="relative z-10 p-4 sm:p-6 lg:p-8">
             <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 sm:mb-6">
-              <Brain className="h-6 w-6 sm:h-8 sm:w-8 text-primary-glow" />
-              <span className="text-sm sm:text-lg font-semibold text-primary-foreground/80">AI Career Intelligence</span>
+              <Compass className="h-6 w-6 sm:h-8 sm:w-8 text-primary-glow" />
+              <span className="text-sm sm:text-lg font-semibold text-primary-foreground/80">AI Pathfinder</span>
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-4 sm:mb-6 leading-tight">
