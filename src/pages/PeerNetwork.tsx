@@ -255,8 +255,7 @@ const PeerNetwork = () => {
             className="shadow-lg"
             onClick={() => window.history.back()}
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            ← Back
+            ← Back to Analysis
           </Button>
           
           <div className="flex-1">
