@@ -45,7 +45,7 @@ const Hero = () => {
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-primary-foreground mb-4 sm:mb-6 leading-tight">
               Transform Your 
-              <span className="text-primary"> Migration</span> Journey
+              <span className="text-blue-900 drop-shadow-lg"> Migration</span> Journey
             </h1>
             
             <p className="text-base sm:text-lg lg:text-xl text-primary-foreground/90 mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
