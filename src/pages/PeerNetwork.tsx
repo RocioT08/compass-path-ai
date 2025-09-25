@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Users, Calendar, ExternalLink, ArrowLeft, MapPin, Building, User, Linkedin } from "lucide-react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface Profile {
   id: string;
@@ -225,6 +225,7 @@ const locations = [
 ];
 
 const PeerNetwork = () => {
+  const navigate = useNavigate();
   const [filters, setFilters] = useState({
     industry: 'all',
     location: 'all'
@@ -253,7 +254,7 @@ const PeerNetwork = () => {
             variant="hero" 
             size="default" 
             className="shadow-lg"
-            onClick={() => window.history.back()}
+            onClick={() => navigate("/")}
           >
             ← Back to Analysis
           </Button>
