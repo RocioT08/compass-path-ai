@@ -176,7 +176,7 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
             AI Analysis Complete
           </Badge>
           <h2 className="text-4xl font-bold mb-4">
-            Your Career Intelligence Report Rocio
+            Your Career Intelligence Report
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Based on your profile and our analysis of 1,200+ similar cases, here
