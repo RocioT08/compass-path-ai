@@ -65,12 +65,12 @@ const SurveyForm = ({ onComplete }: { onComplete: (data: FormData) => void }) =>
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Back to Home Button */}
         <div className="mb-6">
-          <Link to="/">
-            <Button variant="hero" size="default" className="shadow-lg">
+          <Button variant="hero" size="default" className="shadow-lg" asChild>
+            <Link to="/">
               <Home className="h-4 w-4 mr-2" />
               Back to Home
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
         
         <div className="text-center mb-8">
