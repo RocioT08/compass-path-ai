@@ -249,12 +249,15 @@ const PeerNetwork = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
-          <Link to="/">
-            <Button variant="outline" size="sm">
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Dashboard
-            </Button>
-          </Link>
+          <Button 
+            variant="hero" 
+            size="default" 
+            className="shadow-lg"
+            onClick={() => window.history.back()}
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            ← Back
+          </Button>
           
           <div className="flex-1">
             <h1 className="text-3xl font-bold text-foreground mb-2">Professional Network</h1>
