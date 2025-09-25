@@ -246,7 +246,7 @@ const SuccessStories = () => {
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
           <Link to="/">
-            <Button variant="outline" size="sm">
+            <Button variant="hero" size="default" className="shadow-lg">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Home
             </Button>
