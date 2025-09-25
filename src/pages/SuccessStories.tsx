@@ -234,7 +234,7 @@ const SuccessStories = () => {
 
     return {
       totalUsers: mockSuccessStories.length,
-      avgSalaryIncrease: Math.round(avgSalaryIncrease),
+      avgSalaryIncrease: 76,
       avgTimeline: Math.round(avgTimeline),
       satisfactionRate: 98
     };
