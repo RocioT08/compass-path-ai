@@ -23,6 +23,7 @@ import {
   Share2,
   Loader2,
   CheckCircle,
+  Home,
 } from "lucide-react";
 import {
   useCareerPrediction,
@@ -172,6 +173,14 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="text-center mb-12">
+          <div className="flex justify-center mb-6">
+            <Link to="/">
+              <Button variant="outline" className="flex items-center gap-2">
+                <Home className="h-4 w-4" />
+                Back to Home
+              </Button>
+            </Link>
+          </div>
           <Badge variant="secondary" className="mb-4">
             AI Analysis Complete
           </Badge>
