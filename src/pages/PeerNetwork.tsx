@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { Users, Calendar, ExternalLink, ArrowLeft, MapPin, Building, User, Linkedin } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 interface Profile {
   id: string;
@@ -225,7 +225,6 @@ const locations = [
 ];
 
 const PeerNetwork = () => {
-  const navigate = useNavigate();
   const [filters, setFilters] = useState({
     industry: 'all',
     location: 'all'
@@ -250,14 +249,12 @@ const PeerNetwork = () => {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
-          <Button 
-            variant="hero" 
-            size="default" 
-            className="shadow-lg"
-            onClick={() => navigate("/")}
-          >
-            ← Back to Analysis
-          </Button>
+          <Link to="/">
+            <Button variant="outline" size="sm">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Dashboard
+            </Button>
+          </Link>
           
           <div className="flex-1">
             <h1 className="text-3xl font-bold text-foreground mb-2">Professional Network</h1>
