@@ -69,6 +69,9 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
   const handleRecommendationClick = (category: string) => {
     if (category.toLowerCase().includes('idioma') || category.toLowerCase().includes('language')) {
       setLanguagePlacesOpen(true);
+    } else if (category.toLowerCase().includes('networking')) {
+      // Navigate to peer network page
+      window.location.href = '/peer-network';
     }
   };
 
@@ -95,9 +98,9 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
           profileType: "Professional in Transition",
           recommendations: [
             {
-              category: "Language",
+              category: "Language Skills",
               priority: "High",
-              action: "Improve technical English fluency",
+              action: "Improve English/local language proficiency",
               resources: ["Coursera Business English", "LinkedIn Learning"],
             },
           ],
@@ -136,18 +139,30 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
     profileMatch: predictions.profileType,
     riskFactors: predictions.recommendations
       .filter((r) => r.priority === "High")
-      .map((r) => r.category),
+      .map((r) => r.category === "Idioma" ? "Language Skills" : 
+                 r.category === "Experiencia" ? "Experience" : r.category),
     strengths: [
       "Strong educational profile",
       "Relevant experience",
       "Clear goals",
     ],
-    recommendations: predictions.recommendations.map((rec) => ({
-      category: rec.category,
-      priority: rec.priority,
-      action: rec.action,
-      timeline: rec.priority === "High" ? "1-3 months" : "3-6 months",
-    })),
+    recommendations: [
+      ...predictions.recommendations.map((rec) => ({
+        category: rec.category === "Idioma" ? "Language Skills" :
+                 rec.category === "Experiencia" ? "Experience" : rec.category,
+        priority: rec.priority,
+        action: rec.action === "Mejorar nivel de inglés/idioma local" ? "Improve English/local language proficiency" :
+                rec.action === "Ganar experiencia local" ? "Gain local experience" : rec.action,
+        timeline: rec.priority === "High" ? "1-3 months" : "3-6 months",
+      })),
+      // Add networking card
+      {
+        category: "Professional Networking",
+        priority: "High",
+        action: "Connect with professionals and join communities",
+        timeline: "2-4 weeks",
+      }
+    ],
   };
 
   return (
@@ -319,14 +334,16 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                 {analysisResults.recommendations.map((rec, index) => {
                   const isLanguageCard = rec.category.toLowerCase().includes('idioma') || 
                                        rec.category.toLowerCase().includes('language');
+                  const isNetworkingCard = rec.category.toLowerCase().includes('networking');
+                  const isClickable = isLanguageCard || isNetworkingCard;
                   
                   return (
                     <div
                       key={index}
                       className={`border-l-4 border-primary pl-4 pb-4 border-b last:border-b-0 ${
-                        isLanguageCard ? 'cursor-pointer hover:bg-muted/50 transition-colors' : ''
+                        isClickable ? 'cursor-pointer hover:bg-muted/50 transition-colors' : ''
                       }`}
-                      onClick={() => isLanguageCard ? handleRecommendationClick(rec.category) : undefined}
+                      onClick={() => isClickable ? handleRecommendationClick(rec.category) : undefined}
                     >
                       <div className="flex items-center justify-between mb-2">
                         <h4 className="font-semibold text-sm">{rec.category}</h4>
@@ -342,6 +359,11 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                           {isLanguageCard && (
                             <Badge variant="outline" className="text-xs">
                               Click for places
+                            </Badge>
+                          )}
+                          {isNetworkingCard && (
+                            <Badge variant="outline" className="text-xs">
+                              Click to connect
                             </Badge>
                           )}
                         </div>
@@ -376,12 +398,6 @@ const ResultsDashboard = ({ formData }: { formData: FormData }) => {
                 <Button variant="outline" className="w-full justify-start">
                   <Share2 className="w-4 h-4 mr-2" />
                   Share with Advisor
-                </Button>
-                <Button variant="secondary" className="w-full justify-start" asChild>
-                  <Link to="/peer-network">
-                    <Users className="w-4 h-4 mr-2" />
-                    Find Peer Network
-                  </Link>
                 </Button>
               </CardContent>
             </Card>
