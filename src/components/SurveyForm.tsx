@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -6,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight, ArrowLeft, Brain } from "lucide-react";
+import { ArrowRight, ArrowLeft, Brain, Home } from "lucide-react";
 
 interface FormData {
   age: string;
@@ -62,6 +63,16 @@ const SurveyForm = ({ onComplete }: { onComplete: (data: FormData) => void }) =>
   return (
     <section className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 max-w-3xl">
+        {/* Back to Home Button */}
+        <div className="mb-6">
+          <Link to="/">
+            <Button variant="hero" size="default" className="shadow-lg">
+              <Home className="h-4 w-4 mr-2" />
+              Back to Home
+            </Button>
+          </Link>
+        </div>
+        
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Brain className="h-6 w-6 text-primary" />
